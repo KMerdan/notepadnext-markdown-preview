@@ -18,3 +18,12 @@ test('Markdown follows unsaved edits, reuses and reopens its panel, then cleans 
   }finally{await host.dispose();}
   assert.equal(host.panels.size,0);await assert.rejects(host.invoke(manifest.contributes.commands[0].id),/disposed/);
 });
+
+test('declared toolbar icon conforms to the host PNG metadata profile',()=>{
+  const fs=require('node:fs'),path=require('node:path');
+  const profile=require('./tools/plugin-sdk/schemas/manifest.schema.json').$defs.iconPath;
+  const icon=manifest.contributes.commands[0].icon;
+  assert.match(icon,new RegExp(profile.pattern));
+  const bytes=fs.readFileSync(path.join(__dirname,icon));
+  assert.deepEqual(bytes.subarray(0,8),Buffer.from([137,80,78,71,13,10,26,10]));
+});

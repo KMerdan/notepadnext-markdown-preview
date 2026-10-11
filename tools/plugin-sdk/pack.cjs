@@ -70,6 +70,11 @@ async function pack(source,output) {
   }
   try {
     const metadata=await json(path.join(source,'notepadnext-plugin.json')),info=await json(path.join(source,'package.json'));
+    const iconProfile=require('./schemas/manifest.schema.json').$defs.iconPath;
+    for(const command of metadata.contributes?.commands||[])if(command.icon!==undefined) {
+      if(typeof command.icon!=='string'||command.icon.length>iconProfile.maxLength||!new RegExp(iconProfile.pattern).test(command.icon)||!portable(command.icon))
+        throw new Error('Command icons must use package-relative PNG paths supported by the metadata profile.');
+    }
     if(metadata.manifestVersion!==1||metadata.list!==false||!['node','python'].includes(metadata.runtime?.kind))throw new Error('Expected one native Node or Python plugin.');
     if(metadata.runtime.kind==='python'&&(Object.keys(info.dependencies||{}).length||Object.keys(info.optionalDependencies||{}).length))throw new Error('Python packages must vendor modules in dist/ and cannot declare npm runtime dependencies.');
     if(metadata.version!==info.version)throw new Error('Package and plugin versions differ.');

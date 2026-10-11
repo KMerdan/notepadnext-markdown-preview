@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "kmerdan.markdown-preview",
   "name": "Markdown Preview",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "list": false,
   "description": "Preview the current Markdown buffer, including unsaved edits.",
   "engines": {
@@ -31,7 +31,7 @@
       {
         "id": "kmerdan.markdown-preview.open",
         "title": "Open Markdown Preview",
-        "icon": "resources/markdown-preview.svg"
+        "icon": "resources/markdown-preview.png"
       },
       {
         "id": "kmerdan.markdown-preview.refresh",

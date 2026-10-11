@@ -15,4 +15,4 @@ Commit source and lockfile, create the matching `v0.1.1` tag and push it. `plugi
 
 Users refresh Sources first to register the new metadata, then explicitly Update from Installed. Registration, installation and activation remain separate steps. For inactive plugins validation may be deferred until first activation; a failing candidate restores its retained predecessor.
 
-To repeat the initial installation at an old version, register the base repository URL with its optional Git ref set to `v0.1.0`; install it, then register the same base URL without a ref to discover the new version. Both origins resolve to this same release repository.
+To repeat the initial installation at an old version, register the base repository URL with its optional Git ref set to `v0.1.2`; install it, then register the same base URL without a ref to discover the new version. Both origins resolve to this same release repository.
