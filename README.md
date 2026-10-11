@@ -38,8 +38,8 @@ Open `.debug/preview.html`. For live compilation and simulated document events, 
 ```sh
 npm run build
 npm test
-npm run package -- ../artifacts/markdown-preview-0.1.2
-npm run bundle -- ../artifacts/markdown-preview-0.1.2-assets v0.1.2
+npm run package -- ../artifacts/markdown-preview-0.1.3
+npm run bundle -- ../artifacts/markdown-preview-0.1.3-assets v0.1.3
 ```
 
 Output paths must be new and outside the source. Local Install Local Package… accepts the generated directory. GitHub installation downloads `notepadnext-plugin.zip` and validates it against GitHub's asset digest or `notepadnext-plugin-checksums.json` from the same Release. Source archives are not installation packages.

@@ -80,7 +80,7 @@ export async function activate(api:PluginContext) {
   await context.commands.register('kmerdan.markdown-preview.open',open);
   await context.commands.register('kmerdan.markdown-preview.refresh',async()=>{
     if(!panel){await open();return;}
-    clearTimers();++revision;await render();
+    clearTimers();++revision;await panel.reveal(true);await render();
   });
 }
 export async function deactivate() {

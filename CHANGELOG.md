@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- Reveal an existing preview during manual refresh while preserving editor focus.
+- Retain PNG toolbar icon compatibility and independent SDK packaging checks.
+
 ## 0.1.2
 
 - Correct the declared command icon to the native metadata PNG profile.
