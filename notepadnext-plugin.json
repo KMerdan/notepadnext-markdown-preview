@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "kmerdan.markdown-preview",
   "name": "Markdown Preview",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "list": false,
   "description": "Preview the current Markdown buffer, including unsaved edits.",
   "engines": {
@@ -23,7 +23,8 @@
     "optional": []
   },
   "activationEvents": [
-    "onCommand:kmerdan.markdown-preview.open"
+    "onCommand:kmerdan.markdown-preview.open",
+    "onCommand:kmerdan.markdown-preview.refresh"
   ],
   "contributes": {
     "commands": [
@@ -31,6 +32,10 @@
         "id": "kmerdan.markdown-preview.open",
         "title": "Open Markdown Preview",
         "icon": "resources/markdown-preview.svg"
+      },
+      {
+        "id": "kmerdan.markdown-preview.refresh",
+        "title": "Refresh Markdown Preview"
       }
     ],
     "menus": [
@@ -38,6 +43,11 @@
         "location": "plugins",
         "command": "kmerdan.markdown-preview.open",
         "order": 100
+      },
+      {
+        "location": "plugins",
+        "command": "kmerdan.markdown-preview.refresh",
+        "order": 110
       }
     ],
     "toolbar": [

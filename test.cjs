@@ -12,6 +12,7 @@ test('Markdown follows unsaved edits, reuses and reopens its panel, then cleans 
     const panel=[...host.panels.values()][0];assert.match(panel.html,/<h1>unsaved 😀中<\/h1>/);assert.match(panel.html,/<li>item<\/li>/);assert.match(panel.html,/language-js/);assert.doesNotMatch(panel.html,/<script>/);
     await host.invoke(command);assert.equal([...host.panels.values()][0],panel);
     host.setDocument('# changed');await delay(250);assert.match(panel.html,/<h1>changed<\/h1>/);
+    host.setDocument('# manual refresh');await host.invoke(manifest.contributes.commands[1].id);assert.match(panel.html,/<h1>manual refresh<\/h1>/);assert.equal(host.panels.size,1);
     await panel.dispose();await delay(0);assert.equal(host.panels.size,0);
     await host.invoke(command);assert.equal(host.panels.size,1);assert.notEqual([...host.panels.values()][0],panel);
   }finally{await host.dispose();}

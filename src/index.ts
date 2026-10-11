@@ -78,6 +78,10 @@ export async function activate(api:PluginContext) {
   context=api; stopped=false;
   console.info(api.pluginId + ": activated");
   await context.commands.register('kmerdan.markdown-preview.open',open);
+  await context.commands.register('kmerdan.markdown-preview.refresh',async()=>{
+    if(!panel){await open();return;}
+    clearTimers();++revision;await render();
+  });
 }
 export async function deactivate() {
   stopped=true; ++revision; controller?.abort(); clearTimers();
