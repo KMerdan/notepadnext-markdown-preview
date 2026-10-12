@@ -13,7 +13,7 @@ npm run package -- ../../artifacts/html-local
 
 The build copies the SDK service helper and public assets into `dist`. The installed package needs no extra npm installation or separately managed server. Register this directory's metadata, select Install Local Package in Discover, then enable and choose **Open HTML Preview**. Select HTML as the editor language to load unsaved HTML; use **Load active HTML buffer**, edit the preview source and press **Run preview** to execute its inline JavaScript. Remote origins are not available in this first version; same-service assets and `fetch` work, WebSocket transport is not implemented.
 
-For native debugging, rebuild/repackage into a fresh output directory and use Installed → More → Update Local Package / Reload. Plugin Manager → Logs shows host/service activation errors. The simulated Markdown debug host does not implement native service WebEngine panels.
+For native debugging, rebuild/repackage into a fresh output directory, uninstall the old development package while retaining data, then install the new local package. Reload reruns the installed package; it does not load edits from your source directory. Plugin Manager → Logs shows host/service activation errors. The simulated Markdown debug host does not implement native service WebEngine panels.
 
 Hot update registers a replacement activation and service endpoint while keeping the existing dock. Its draft source, rendered preview and counter restore from `acquireVsCodeApi().setState`; position and scroll come from the host. Disabling or uninstalling closes the panel and disposes the HTTP server. Backend process memory is not migrated.
 

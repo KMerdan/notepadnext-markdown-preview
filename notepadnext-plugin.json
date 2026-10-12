@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "kmerdan.official-plugins",
   "name": "Notepad Next ++ Official Plugins",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "First-party Markdown and HTML previews for Notepad Next ++. Register this catalog, then choose which plugins to install.",
   "repository": "https://github.com/KMerdan/notepadnext-markdown-preview",
   "list": [
@@ -73,7 +73,7 @@
       "id": "kmerdan.html-preview",
       "name": "HTML Preview",
       "description": "Run HTML and JavaScript through an activation-owned local Node.js service.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "list": false,
       "engines": {
         "notepadnext": ">=0.15.0 <0.16.0",

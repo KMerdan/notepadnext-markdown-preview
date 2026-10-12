@@ -10,7 +10,8 @@ function render(){
   for(const inert of preview.querySelectorAll('script')){const script=document.createElement('script');for(const attr of inert.attributes)script.setAttribute(attr.name,attr.value);script.textContent=inert.textContent;inert.replaceWith(script);}
   save();
 }
-async function load(){const result=await(await fetch('api/document')).json();document.getElementById('service').textContent='Node PID '+result.pid;source.value=result.text;render();}
+async function serviceInfo(){const result=await(await fetch('api/service')).json();document.getElementById('service').textContent='Plugin '+result.pluginVersion+' · Node PID '+result.pid;}
+async function load(){const result=await(await fetch('api/document')).json();source.value=result.text;render();await serviceInfo();}
 counter.addEventListener('click',()=>{++count;updateCounter();save();});source.addEventListener('input',save);
 document.getElementById('run').addEventListener('click',render);document.getElementById('load').addEventListener('click',()=>load().catch(error=>document.getElementById('service').textContent=error.message));
-updateCounter();if(previous?.source!==undefined){source.value=previous.source;render();}else load().catch(error=>document.getElementById('service').textContent=error.message);
+updateCounter();if(previous?.source!==undefined){source.value=previous.source;render();serviceInfo().catch(error=>document.getElementById('service').textContent=error.message);}else load().catch(error=>document.getElementById('service').textContent=error.message);

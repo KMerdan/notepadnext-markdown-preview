@@ -2,6 +2,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path');
 const {startLocalService}=require('./local-service.cjs');
+const metadata=JSON.parse(fs.readFileSync(path.join(__dirname,'..','notepadnext-plugin.json'),'utf8'));
 exports.activate=async context=>{
   let service,panel,document={text:'<h1>Hello HTML</h1><button onclick="this.textContent=\'JavaScript works\'">Run JavaScript</button>',version:0};
   const refresh=async()=>{const active=await context.documents.getActive();if(active?.languageId==='html')document=await context.documents.getSnapshot(active.documentId);};
@@ -10,6 +11,7 @@ exports.activate=async context=>{
     if(panel){await panel.reveal();return;}
     if(!service)service=await startLocalService(context,async(request,response,file)=>{
       if(request.method!=='GET'){response.writeHead(405);response.end();return;}
+      if(file==='api/service'){response.setHeader('Content-Type','application/json');response.end(JSON.stringify({pluginVersion:metadata.version,pid:process.pid}));return;}
       if(file==='api/document'){response.setHeader('Content-Type','application/json');response.end(JSON.stringify({text:document.text,version:document.version,pid:process.pid}));return;}
       const types={'index.html':'text/html; charset=utf-8','app.js':'text/javascript','style.css':'text/css'};
       if(!types[file]){response.writeHead(404);response.end();return;}

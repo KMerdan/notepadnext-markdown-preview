@@ -1,5 +1,11 @@
 # Marketplace changes
 
+## 0.1.1
+
+- Release HTML Preview 0.1.1 independently; Markdown stays at 0.1.5.
+- Show the current backend/plugin version after panel restoration without overwriting preview drafts.
+- Test actual Node HTTP endpoints, method/path isolation, lazy service start and service disposal.
+
 ## 0.1.0
 
 - Upgrade the existing Markdown repository to the first-party Notepad Next ++ plugin marketplace.
