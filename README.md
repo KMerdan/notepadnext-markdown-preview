@@ -8,7 +8,7 @@ The original `notepadnext-markdown-preview` URL is retained so existing Markdown
 
 Use the latest plugin-enabled Notepad Next ++ development build with WebEngine and Node 24 support. The host must support namespaced marketplace releases (`<plugin-id>/v<version>`).
 
-1. **Plugins → Plugin Manager → Register Resources…**: enter `https://github.com/KMerdan/notepadnext-markdown-preview` and leave Git ref empty.
+1. **Plugins → Plugin Manager → Add Source…**: enter `https://github.com/KMerdan/notepadnext-markdown-preview` and leave Git ref empty.
 2. Review **Notepad Next ++ Official Plugins** and its two entries. Registration only adds a source; it never installs or runs code.
 3. In **Discover**, select **Markdown Preview** or **HTML Preview**, choose **Install…**, review its package and permissions, and confirm.
 4. In **Installed**, enable that plugin, then use **Open Markdown Preview** or **Open HTML Preview** from the Plugins menu.
