@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "kmerdan.markdown-preview",
   "name": "Markdown Preview",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "list": false,
   "description": "Preview the current Markdown buffer, including unsaved edits.",
   "engines": {

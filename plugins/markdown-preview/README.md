@@ -1,6 +1,6 @@
 # Markdown Preview
 
-TypeScript plugin `kmerdan.markdown-preview`, developed with the shared Notepad Next ++ SDK. It reads unsaved Markdown, renders a dock beside the editor and registers a generic panel restorer. Native hot updates retain the existing panel and its scroll.
+TypeScript plugin `kmerdan.markdown-preview`, developed with the independent Notepad Next ++ SDK 0.2.0. It reads unsaved Markdown, renders a dock beside the editor and registers a generic panel restorer. Native hot updates retain the existing panel and its scroll.
 
 From this directory, using Node 24:
 

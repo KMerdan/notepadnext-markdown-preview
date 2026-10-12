@@ -20,5 +20,5 @@ jobs:
       - run: npm run ci
       - name: Verify both release packages
         run: |
-          node tools/plugin-sdk/release.cjs plugins/markdown-preview "$RUNNER_TEMP/markdown-assets"
-          node tools/plugin-sdk/release.cjs plugins/html-preview "$RUNNER_TEMP/html-assets"
+          node plugins/markdown-preview/node_modules/@notepadnext/plugin-sdk/release.cjs plugins/markdown-preview "$RUNNER_TEMP/markdown-assets"
+          node plugins/html-preview/node_modules/@notepadnext/plugin-sdk/release.cjs plugins/html-preview "$RUNNER_TEMP/html-assets"

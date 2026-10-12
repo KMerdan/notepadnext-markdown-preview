@@ -15,8 +15,8 @@ The build copies the SDK service helper and public assets into `dist`. The insta
 
 For native debugging, rebuild/repackage into a fresh output directory, uninstall the old development package while retaining data, then install the new local package. Reload reruns the installed package; it does not load edits from your source directory. Plugin Manager → Logs shows host/service activation errors. The simulated Markdown debug host does not implement native service WebEngine panels.
 
-Hot update registers a replacement activation and service endpoint while keeping the existing dock. Its draft source, rendered preview and counter restore from `acquireVsCodeApi().setState`; position and scroll come from the host. Disabling or uninstalling closes the panel and disposes the HTTP server. Backend process memory is not migrated.
+Hot update registers a replacement activation and service endpoint while keeping the existing dock. Its draft source, rendered preview and counter restore from `acquireNotepadNextApi().setState` (with the legacy alias on older hosts); position and scroll come from the host. Disabling or uninstalling closes the panel and disposes the HTTP server. Backend process memory is not migrated.
 
-[SDK HTML service contract](../../tools/plugin-sdk/docs/HtmlService.zh-CN.md) · [restoration lifecycle](../../tools/plugin-sdk/docs/HotUpdate.zh-CN.md) · [repository registration and updates](../../README.md)
+[SDK HTML service contract](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.0/docs/HtmlService.zh-CN.md) · [restoration lifecycle](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.0/docs/HotUpdate.zh-CN.md) · [repository registration and updates](../../README.md)
 
 GPL-3.0-or-later; derived from the SDK HTML service example, with original license notices retained.

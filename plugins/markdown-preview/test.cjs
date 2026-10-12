@@ -21,7 +21,7 @@ test('Markdown follows unsaved edits, reuses and reopens its panel, then cleans 
 
 test('declared toolbar icon conforms to the host PNG metadata profile',()=>{
   const fs=require('node:fs'),path=require('node:path');
-  const profile=require('../../tools/plugin-sdk/schemas/manifest.schema.json').$defs.iconPath;
+  const profile=require(path.join(path.dirname(require.resolve('@notepadnext/plugin-sdk/package.json')),'schemas/manifest.schema.json')).$defs.iconPath;
   const icon=manifest.contributes.commands[0].icon;
   assert.match(icon,new RegExp(profile.pattern));
   const bytes=fs.readFileSync(path.join(__dirname,icon));

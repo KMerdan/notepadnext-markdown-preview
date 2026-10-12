@@ -1,3 +1,10 @@
+# 2026-10-12 — independent SDK dependency
+
+- Both plugins now build with the fixed SDK 0.2.0 Release URL and lockfile integrity. The vendored SDK source is removed.
+- Markdown 0.1.6 retains API 0.1 behavior and is rebuilt through the independent SDK.
+- HTML 0.1.2 uses the native browser bridge name with an older-host alias fallback.
+- Catalog 0.1.2 keeps both IDs, origins and independent update lifecycles.
+
 # Marketplace changes
 
 ## 0.1.1
