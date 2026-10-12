@@ -26,7 +26,7 @@ Existing `kmerdan.markdown-preview` installations retain their ID, origin and st
 
 ## Develop
 
-Node 24; no Qt compiler or editor source checkout is needed to build plugins. SDK **0.2.0** is an exact [Release tarball](https://github.com/KMerdan/notepadnext-plugin-sdk/releases/tag/v0.2.0) development dependency, fixed by URL and each plugin's npm lockfile integrity. SDK source is maintained in its own repository; no vendored SDK remains here. Both preview plugins retain host API **0.1** so the package split does not change existing callback behavior. Native selection/core tools use the SDK's separate API 0.2 entry.
+Node 24; no Qt compiler or editor source checkout is needed to build plugins. SDK **0.2.1** is an exact [Release tarball](https://github.com/KMerdan/notepadnext-plugin-sdk/releases/tag/v0.2.1) development dependency, fixed by URL and each plugin's npm lockfile integrity. SDK source is maintained in its own repository; no vendored SDK remains here. Both preview plugins retain host API **0.1** so the package split does not change existing callback behavior. Native selection/core tools use the SDK's separate API 0.2 entry.
 
 ```sh
 npm run ci
@@ -36,7 +36,7 @@ This installs dependencies with scripts disabled, builds and tests both plugins,
 
 - [Markdown development and local debugging](plugins/markdown-preview/README.md)
 - [HTML service development and native debugging](plugins/html-preview/README.md)
-- [SDK guide](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.0/docs/GettingStarted.zh-CN.md), [API](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.0/docs/API.zh-CN.md), [panel restoration](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.0/docs/HotUpdate.zh-CN.md)
+- [SDK guide](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.1/docs/GettingStarted.zh-CN.md), [API](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.1/docs/API.zh-CN.md), [panel restoration](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.1/docs/HotUpdate.zh-CN.md)
 - [Independent release maintenance](docs/Releases.md)
 
 GPL-3.0-or-later. The SDK and examples derive from NotepadNext / Notepad Next ++; upstream copyright notices and licenses are retained. Runtime third-party dependencies and their licenses are included in release packages.
