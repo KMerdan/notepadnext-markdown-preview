@@ -1,26 +1,16 @@
 {
-  "name": "kmerdan-markdown-preview",
-  "version": "0.1.4",
+  "name": "notepad-next-plus-plus-official-plugins",
+  "version": "0.1.0",
   "private": true,
   "license": "GPL-3.0-or-later",
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "watch": "tsc -p tsconfig.json --watch --preserveWatchOutput",
-    "test": "node --test test.cjs",
-    "debug": "nnp-debug . --input demo.md --output .debug/preview.html",
-    "dev": "nnp-debug . --input demo.md --output .debug/preview.html --watch",
-    "debug:break": "node --enable-source-maps --inspect-brk=127.0.0.1:9229 ./node_modules/@notepadnext/plugin-sdk/debug.cjs . --input demo.md --output .debug/preview.html",
-    "package": "nnp-package .",
-    "bundle": "nnp-release ."
-  },
-  "devDependencies": {
-    "@notepadnext/plugin-sdk": "file:./tools/plugin-sdk",
-    "typescript": "5.9.3"
-  },
   "engines": {
     "node": ">=24 <25"
   },
-  "dependencies": {
-    "markdown-it": "15.0.2"
+  "scripts": {
+    "catalog": "node tools/marketplace.cjs sync",
+    "check": "node tools/marketplace.cjs check",
+    "build": "npm --prefix plugins/markdown-preview run build && npm --prefix plugins/html-preview run build",
+    "test": "npm run check && node --test tools/marketplace.test.cjs && npm --prefix plugins/markdown-preview test && npm --prefix plugins/html-preview test",
+    "ci": "node tools/marketplace.cjs ci"
   }
 }

@@ -3,3 +3,4 @@ dist/
 .debug/
 *.tgz
 .DS_Store
+artifacts/

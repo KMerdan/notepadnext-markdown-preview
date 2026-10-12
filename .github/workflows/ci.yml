@@ -1,4 +1,4 @@
-name: Plugin checks
+name: Marketplace checks
 on:
   push:
     branches: [main]
@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: '24.21.0'
           package-manager-cache: false
-      - run: npm ci --ignore-scripts
-      - run: npm run build
-      - run: npm test
-      - name: Verify release packaging
-        run: npm run bundle -- "$RUNNER_TEMP/plugin-assets"
+      - run: npm run ci
+      - name: Verify both release packages
+        run: |
+          node tools/plugin-sdk/release.cjs plugins/markdown-preview "$RUNNER_TEMP/markdown-assets"
+          node tools/plugin-sdk/release.cjs plugins/html-preview "$RUNNER_TEMP/html-assets"

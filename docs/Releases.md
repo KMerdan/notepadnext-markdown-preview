@@ -1,20 +1,21 @@
-# Release maintenance
+# Independent plugin releases
 
-The default branch metadata declares the latest installable plugin version. Keep `package.json` and `notepadnext-plugin.json` version fields identical; use stable SemVer. After changing them, run `npm install --package-lock-only --ignore-scripts`, then build and test.
+The root `notepadnext-plugin.json` is a marketplace: `list` contains the full metadata of both plugins. Each package keeps `list: false`. Catalog generation never runs plugin code, and its check prevents versions, permissions or commands from drifting between the catalog and package.
 
-For the next version, for example 0.1.4:
+1. Change source and the selected plugin's version in `package.json` and `notepadnext-plugin.json`.
+2. From its directory, run `npm install --package-lock-only --ignore-scripts --install-links`.
+3. From the repo root, run `npm run catalog` and bump the root catalog version when publishing a catalog change. Run `npm run ci`.
+4. Commit, then create the exact tag **`<plugin-id>/v<version>`**, e.g. `kmerdan.html-preview/v0.1.0`. Push the commit and tag.
+5. `plugin-release.yml` selects only that plugin, performs a locked build/test, and publishes a draft with `notepadnext-plugin.zip` and `notepadnext-plugin-checksums.json`. Verify ID, version, size, SHA-256 and licenses before publishing the draft. Never overwrite an existing release.
+
+Local release check:
 
 ```sh
-npm ci --ignore-scripts
-npm run build
-npm test
-npm run bundle -- ../artifacts/markdown-preview-0.1.4-assets v0.1.4
+node tools/marketplace.cjs release kmerdan.html-preview/v0.1.0 ../html-release-assets
 ```
 
-Commit source and lockfile, create the matching `v0.1.4` tag and push it. `plugin-release.yml` builds with the pinned Node 24 runtime and creates a draft containing the ZIP and checksums. Review it and publish it for Plugin Manager discovery. Drafts and prereleases are excluded by the installer. Do not overwrite an existing version or its assets.
+Output must be new and outside the source directory. Generic asset filenames are safe because each plugin owns a separate namespaced GitHub Release. The host only selects the chosen plugin's namespace and catalog version, then validates package metadata and integrity. Old Markdown `v0.1.2`–`v0.1.4` releases remain available for backward compatibility.
 
-Users refresh Sources first to register the new metadata, then explicitly Update from Installed. Registration, installation and activation remain separate steps. For inactive plugins validation may be deferred until first activation; a failing candidate restores its retained predecessor.
+For a complete native install/update demonstration, register the repository with optional Git ref `marketplace/v0.1.0`, install HTML 0.1.0 and Markdown 0.1.5, then register/refresh the default branch and update HTML to 0.1.1. The Markdown version is unchanged. Ordinary users leave the ref empty and get the latest catalog.
 
-To repeat the initial installation at an old version, register the base repository URL with its optional Git ref set to `v0.1.2`; install it, then register the same base URL without a ref to discover the new version. Both origins resolve to this same release repository.
-
-The native macOS host has verified this public repository's v0.1.2 installation, source refresh and v0.1.3 update, including unsaved emoji/Chinese Markdown and preserved enablement. v0.1.0/v0.1.1 are experimental prereleases because their original command icon declarations did not match the host's PNG profile. Use v0.1.2 or newer.
+Registration, installation and enablement are separate choices. Updating HTML must not replace Markdown. Plugin Manager retains per-plugin data and restores supported open panels; a failed replacement rolls back its package.

@@ -32,7 +32,7 @@ let count = previous?.count ?? 0;
 host.setState({count, selectedItem: 'one'});
 ```
 
-状态必须是可序列化 JSON，每个面板最多 64 KiB。宿主还保存最多 128 个 input/textarea/select 的值，各值最多 4096 字符，总浏览器快照 128 KiB。密码、文件输入不纳入表单快照；恢复不会触发 input/change 事件。应用应在修改时主动调用 setState，不能依赖更新过程中任意 JS 堆、计时器、网络连接或后台任务被复制。滚动和表单恢复仍取决于新页面提供相应元素和布局；结构改变时应在恢复回调迁移业务状态。
+状态必须是可序列化 JSON，每个面板最多 64 KiB。宿主还保存最多 128 个 input/textarea/select 的值，各值最多 4096 字符，总浏览器快照 128 KiB；超限字段跳过，避免截断后覆盖应用通过 setState 恢复的完整内容。密码、文件输入不纳入表单快照；恢复不会触发 input/change 事件。应用应在修改时主动调用 setState，不能依赖更新过程中任意 JS 堆、计时器、网络连接或后台任务被复制。滚动和表单恢复仍取决于新页面提供相应元素和布局；结构改变时应在恢复回调迁移业务状态。
 
 Python 使用 `context.webviews.register_restorer(view_type, callback)`；其回调参数遵循相同 JSON 描述。VS Code 适配层将 `window.registerWebviewPanelSerializer` 映射到恢复回调，并传入 `deserializeWebviewPanel(panel, state)`；恢复时可同步重置 webview.options 的脚本开关和本地资源目录。
 

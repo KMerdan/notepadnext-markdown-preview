@@ -1,0 +1,62 @@
+{
+  "manifestVersion": 1,
+  "id": "kmerdan.markdown-preview",
+  "name": "Markdown Preview",
+  "version": "0.1.5",
+  "list": false,
+  "description": "Preview the current Markdown buffer, including unsaved edits.",
+  "engines": {
+    "notepadnext": ">=0.15.0 <0.16.0",
+    "api": "^0.1.0"
+  },
+  "runtime": {
+    "kind": "node",
+    "entry": "dist/index.js"
+  },
+  "capabilities": {
+    "required": [
+      "documents.read@1",
+      "documents.events@1",
+      "commands@1",
+      "webviews@1",
+      "webviews.restore@1"
+    ],
+    "optional": []
+  },
+  "activationEvents": [
+    "onCommand:kmerdan.markdown-preview.open",
+    "onCommand:kmerdan.markdown-preview.refresh"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "id": "kmerdan.markdown-preview.open",
+        "title": "Open Markdown Preview",
+        "icon": "resources/markdown-preview.png"
+      },
+      {
+        "id": "kmerdan.markdown-preview.refresh",
+        "title": "Refresh Markdown Preview"
+      }
+    ],
+    "menus": [
+      {
+        "location": "plugins",
+        "command": "kmerdan.markdown-preview.open",
+        "order": 100
+      },
+      {
+        "location": "plugins",
+        "command": "kmerdan.markdown-preview.refresh",
+        "order": 110
+      }
+    ],
+    "toolbar": [
+      {
+        "command": "kmerdan.markdown-preview.open",
+        "order": 100
+      }
+    ]
+  },
+  "repository": "https://github.com/KMerdan/notepadnext-markdown-preview"
+}

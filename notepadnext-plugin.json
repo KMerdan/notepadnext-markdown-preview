@@ -1,62 +1,118 @@
 {
   "manifestVersion": 1,
-  "id": "kmerdan.markdown-preview",
-  "name": "Markdown Preview",
-  "version": "0.1.4",
-  "list": false,
-  "description": "Preview the current Markdown buffer, including unsaved edits.",
-  "engines": {
-    "notepadnext": ">=0.15.0 <0.16.0",
-    "api": "^0.1.0"
-  },
-  "runtime": {
-    "kind": "node",
-    "entry": "dist/index.js"
-  },
-  "capabilities": {
-    "required": [
-      "documents.read@1",
-      "documents.events@1",
-      "commands@1",
-      "webviews@1",
-      "webviews.restore@1"
-    ],
-    "optional": []
-  },
-  "activationEvents": [
-    "onCommand:kmerdan.markdown-preview.open",
-    "onCommand:kmerdan.markdown-preview.refresh"
-  ],
-  "contributes": {
-    "commands": [
-      {
-        "id": "kmerdan.markdown-preview.open",
-        "title": "Open Markdown Preview",
-        "icon": "resources/markdown-preview.png"
+  "id": "kmerdan.official-plugins",
+  "name": "Notepad Next ++ Official Plugins",
+  "version": "0.1.0",
+  "description": "First-party Markdown and HTML previews for Notepad Next ++. Register this catalog, then choose which plugins to install.",
+  "repository": "https://github.com/KMerdan/notepadnext-markdown-preview",
+  "list": [
+    {
+      "manifestVersion": 1,
+      "id": "kmerdan.markdown-preview",
+      "name": "Markdown Preview",
+      "version": "0.1.5",
+      "list": false,
+      "description": "Preview the current Markdown buffer, including unsaved edits.",
+      "engines": {
+        "notepadnext": ">=0.15.0 <0.16.0",
+        "api": "^0.1.0"
       },
-      {
-        "id": "kmerdan.markdown-preview.refresh",
-        "title": "Refresh Markdown Preview"
-      }
-    ],
-    "menus": [
-      {
-        "location": "plugins",
-        "command": "kmerdan.markdown-preview.open",
-        "order": 100
+      "runtime": {
+        "kind": "node",
+        "entry": "dist/index.js"
       },
-      {
-        "location": "plugins",
-        "command": "kmerdan.markdown-preview.refresh",
-        "order": 110
-      }
-    ],
-    "toolbar": [
-      {
-        "command": "kmerdan.markdown-preview.open",
-        "order": 100
-      }
-    ]
-  },
-  "repository": "https://github.com/KMerdan/notepadnext-markdown-preview"
+      "capabilities": {
+        "required": [
+          "documents.read@1",
+          "documents.events@1",
+          "commands@1",
+          "webviews@1",
+          "webviews.restore@1"
+        ],
+        "optional": []
+      },
+      "activationEvents": [
+        "onCommand:kmerdan.markdown-preview.open",
+        "onCommand:kmerdan.markdown-preview.refresh"
+      ],
+      "contributes": {
+        "commands": [
+          {
+            "id": "kmerdan.markdown-preview.open",
+            "title": "Open Markdown Preview",
+            "icon": "resources/markdown-preview.png"
+          },
+          {
+            "id": "kmerdan.markdown-preview.refresh",
+            "title": "Refresh Markdown Preview"
+          }
+        ],
+        "menus": [
+          {
+            "location": "plugins",
+            "command": "kmerdan.markdown-preview.open",
+            "order": 100
+          },
+          {
+            "location": "plugins",
+            "command": "kmerdan.markdown-preview.refresh",
+            "order": 110
+          }
+        ],
+        "toolbar": [
+          {
+            "command": "kmerdan.markdown-preview.open",
+            "order": 100
+          }
+        ]
+      },
+      "repository": "https://github.com/KMerdan/notepadnext-markdown-preview"
+    },
+    {
+      "manifestVersion": 1,
+      "id": "kmerdan.html-preview",
+      "name": "HTML Preview",
+      "description": "Run HTML and JavaScript through an activation-owned local Node.js service.",
+      "version": "0.1.0",
+      "list": false,
+      "engines": {
+        "notepadnext": ">=0.15.0 <0.16.0",
+        "api": "^0.1.0"
+      },
+      "runtime": {
+        "kind": "node",
+        "entry": "dist/index.js"
+      },
+      "capabilities": {
+        "required": [
+          "commands@1",
+          "documents.read@1",
+          "documents.events@1",
+          "webviews@1",
+          "webviews.service@1",
+          "webviews.restore@1"
+        ],
+        "optional": []
+      },
+      "activationEvents": [
+        "onCommand:kmerdan.html-preview.open"
+      ],
+      "contributes": {
+        "commands": [
+          {
+            "id": "kmerdan.html-preview.open",
+            "title": "Open HTML Preview"
+          }
+        ],
+        "menus": [
+          {
+            "location": "plugins",
+            "command": "kmerdan.html-preview.open",
+            "order": 120
+          }
+        ]
+      },
+      "repository": "https://github.com/KMerdan/notepadnext-markdown-preview"
+    }
+  ]
 }

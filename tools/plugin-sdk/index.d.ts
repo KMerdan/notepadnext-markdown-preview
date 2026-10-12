@@ -21,7 +21,7 @@ export interface DeltaWatch extends Disposable {
 export interface RenderContext { documentId: string | null; version: number | null; }
 export interface WebviewEvent { panelId: string; type: 'closed' | 'message' | 'loadFailed' | 'viewState'; payload?: unknown; }
 export interface CompatibleWebviewOptions {panelId:string;viewType:string;title:string;enableScripts:boolean;localResourceRoots:string[];}
-export interface RestoredPanel {readonly panelId:string;readonly viewType:string;readonly title:string;readonly kind:'fragment'|'html'|'service';readonly hasState:boolean;readonly state:unknown;}
+export interface RestoredPanel {readonly panelId:string;readonly viewType:string;readonly title:string;readonly kind:'fragment'|'html'|'service';readonly visible?:boolean;readonly active?:boolean;readonly hasState:boolean;readonly state:unknown;}
 export interface CompatibleWebviewPanel extends Disposable {
   readonly panelId:string;
   reveal(preserveFocus?:boolean):Promise<void>;

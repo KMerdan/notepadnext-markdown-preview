@@ -1,51 +1,42 @@
-# Markdown Preview for NotepadNext
+# Notepad Next ++ Official Plugin Marketplace
 
-A standalone TypeScript plugin developed with the NotepadNext SDK 0.1.1. Preview the editor buffer, including unsaved Markdown, in a dock beside the editor. Closing/reopening disposes and recreates the watch; deactivation releases timers and the panel.
+Our first-party plugin catalog for [Notepad Next ++](https://github.com/KMerdan/notepad-next-plus-plus), maintained by KMerdan. **Markdown Preview and HTML Preview share this repository URL**, while their packages, versions and update lifecycles remain independent.
 
-## Install from this repository
+The original `notepadnext-markdown-preview` URL is retained so existing Markdown installations keep their trusted update source. This catalog is official for our fork; it is not an upstream NotepadNext marketplace.
 
-Use a plugin-enabled NotepadNext 0.15.x development build with WebEngine support:
+## Register, install and update
 
-1. **Plugins → Plugin Manager… → Register Resources…**: enter `https://github.com/KMerdan/notepadnext-markdown-preview`.
-2. Review and register the resource. It appears in **Uninstalled**; registration does not install or run it.
-3. Select **Markdown Preview → Install…**, choose the matching stable Release package and confirm.
-4. In **Installed**, enable the plugin and choose **Open Markdown Preview**. Open an `.md` file or set a new buffer's language to Markdown.
+Use the latest plugin-enabled Notepad Next ++ development build with WebEngine and Node 24 support. The host must support namespaced marketplace releases (`<plugin-id>/v<version>`).
 
-Plugin ID: `kmerdan.markdown-preview`. It is separate from the original local `notepadnext.markdown-preview` example. If both are installed, disable the old example to use this one.
+1. **Plugins → Plugin Manager → Register Resources…**: enter `https://github.com/KMerdan/notepadnext-markdown-preview` and leave Git ref empty.
+2. Review **Notepad Next ++ Official Plugins** and its two entries. Registration only adds a source; it never installs or runs code.
+3. In **Discover**, select **Markdown Preview** or **HTML Preview**, choose **Install…**, review its package and permissions, and confirm.
+4. In **Installed**, enable that plugin, then use **Open Markdown Preview** or **Open HTML Preview** from the Plugins menu.
 
-**Update:** Sources → select this repository → Refresh; then Installed → Markdown Preview → Update… → choose the newer Release. Settings and enablement are preserved. More → Reload restarts the installed version, while Roll Back restores its retained predecessor.
+**Updates:** refresh this source (or Refresh Catalog), then update each plugin from Installed. The installed plugin can also check its repository independently. An enabled, open panel restores automatically after a successful hot update, including its dock/floating position, scroll and saved preview state. A failing activation rolls back to the previous package. More → Reload restarts the same version; Roll Back uses its retained predecessor.
 
-## Develop locally
+**Uninstall:** removes that plugin's package and panel; data is retained unless you choose to delete it. The catalog entry remains available in Discover. Removing the source leaves installed plugins intact.
 
-Use Node 24. The repository vendors SDK 0.1.1 under `tools/plugin-sdk/`; no NotepadNext source checkout or Qt compiler is needed to build the plugin.
+Existing `kmerdan.markdown-preview` installations retain their ID, origin and stored data. Refresh the same source to turn the old single-plugin listing into this marketplace. The local examples `notepadnext.markdown-preview` and `notepadnext.html-preview` are separate IDs; disable those examples if you install their marketplace counterparts.
 
-```sh
-npm ci --ignore-scripts
-npm run build
-npm test
-npm run debug
-```
+| Plugin | ID | What it does |
+| --- | --- | --- |
+| [Markdown Preview](plugins/markdown-preview) | `kmerdan.markdown-preview` | TypeScript preview of the current unsaved Markdown buffer, with preserved scroll on update. |
+| [HTML Preview](plugins/html-preview) | `kmerdan.html-preview` | An activation-owned local Node.js HTTP service renders HTML/JS inside a dock and retains draft source and counter state on update. |
 
-Open `.debug/preview.html`. For live compilation and simulated document events, run `npm run watch` and `npm run dev` in separate terminals. For TypeScript breakpoints, use `.vscode/launch.json` or `npm run debug:break` and attach on `127.0.0.1:9229`. The simulated host does not replace native editor testing.
+## Develop
 
-- [SDK development guide](tools/plugin-sdk/docs/GettingStarted.zh-CN.md)
-- [Markdown development, debug and local installation](tools/plugin-sdk/docs/MarkdownWalkthrough.zh-CN.md)
-- [Debugging and API](tools/plugin-sdk/docs/Debugging.zh-CN.md)
-- [Release maintenance](docs/Releases.md)
-
-## Build local installation and distribution packages
+Node 24; no Qt compiler or editor source checkout is needed to build plugins. SDK **0.1.2** is vendored in `tools/plugin-sdk` and copied into each plugin's development dependencies by a locked install.
 
 ```sh
-npm run build
-npm test
-npm run package -- ../artifacts/markdown-preview-0.1.4
-npm run bundle -- ../artifacts/markdown-preview-0.1.4-assets v0.1.4
+npm run ci
 ```
 
-Output paths must be new and outside the source. Local Install Local Package… accepts the generated directory. GitHub installation downloads `notepadnext-plugin.zip` and validates it against GitHub's asset digest or `notepadnext-plugin-checksums.json` from the same Release. Source archives are not installation packages.
+This installs dependencies with scripts disabled, builds and tests both plugins, and checks that the root catalog exactly matches their metadata. Work on one plugin with `npm --prefix plugins/markdown-preview run build` or `npm --prefix plugins/html-preview run build`.
 
-Native `setHtml` uses well-formed XHTML with the host's theme/font/CSP. Raw HTML is escaped. Local relative images can be mapped by the real host; the SDK simulated host shows placeholders. There is no scroll synchronization in this version.
+- [Markdown development and local debugging](plugins/markdown-preview/README.md)
+- [HTML service development and native debugging](plugins/html-preview/README.md)
+- [SDK guide](tools/plugin-sdk/docs/GettingStarted.zh-CN.md), [API](tools/plugin-sdk/docs/API.zh-CN.md), [panel restoration](tools/plugin-sdk/docs/HotUpdate.zh-CN.md)
+- [Independent release maintenance](docs/Releases.md)
 
-GPL-3.0-or-later. Third-party production dependencies and their licenses are included by the SDK packer.
-
-Hot updates use the generic `webviews.restore@1` lifecycle. The host preserves the existing dock, floating position and scroll while the new activation renders the current unsaved buffer. No menu command is replayed. See [restoration contract](tools/plugin-sdk/docs/HotUpdate.zh-CN.md). Requires a host with the restoration capability.
+GPL-3.0-or-later. The SDK and examples derive from NotepadNext / Notepad Next ++; upstream copyright notices and licenses are retained. Runtime third-party dependencies and their licenses are included in release packages.
