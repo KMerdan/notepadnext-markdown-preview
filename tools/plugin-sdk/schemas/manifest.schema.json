@@ -218,6 +218,14 @@
     },
     "compatibility": {
       "$ref": "#/$defs/vscodeCompatibility"
+    },
+    "displayIcon": {
+      "type": "string",
+      "enum": [
+        "plugin",
+        "markdown"
+      ],
+      "description": "Optional host-owned visual identity. It is available in Discover and before activation; package image files are read only after verification."
     }
   },
   "$defs": {

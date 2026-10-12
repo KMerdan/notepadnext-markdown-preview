@@ -1,6 +1,6 @@
 # Markdown Preview for NotepadNext
 
-A standalone TypeScript plugin developed with the NotepadNext SDK 0.1.0. Preview the editor buffer, including unsaved Markdown, in a dock beside the editor. Closing/reopening disposes and recreates the watch; deactivation releases timers and the panel.
+A standalone TypeScript plugin developed with the NotepadNext SDK 0.1.1. Preview the editor buffer, including unsaved Markdown, in a dock beside the editor. Closing/reopening disposes and recreates the watch; deactivation releases timers and the panel.
 
 ## Install from this repository
 
@@ -17,7 +17,7 @@ Plugin ID: `kmerdan.markdown-preview`. It is separate from the original local `n
 
 ## Develop locally
 
-Use Node 24. The repository vendors SDK 0.1.0 under `tools/plugin-sdk/`; no NotepadNext source checkout or Qt compiler is needed to build the plugin.
+Use Node 24. The repository vendors SDK 0.1.1 under `tools/plugin-sdk/`; no NotepadNext source checkout or Qt compiler is needed to build the plugin.
 
 ```sh
 npm ci --ignore-scripts
@@ -38,8 +38,8 @@ Open `.debug/preview.html`. For live compilation and simulated document events, 
 ```sh
 npm run build
 npm test
-npm run package -- ../artifacts/markdown-preview-0.1.3
-npm run bundle -- ../artifacts/markdown-preview-0.1.3-assets v0.1.3
+npm run package -- ../artifacts/markdown-preview-0.1.4
+npm run bundle -- ../artifacts/markdown-preview-0.1.4-assets v0.1.4
 ```
 
 Output paths must be new and outside the source. Local Install Local Package… accepts the generated directory. GitHub installation downloads `notepadnext-plugin.zip` and validates it against GitHub's asset digest or `notepadnext-plugin-checksums.json` from the same Release. Source archives are not installation packages.
@@ -47,3 +47,5 @@ Output paths must be new and outside the source. Local Install Local Package… 
 Native `setHtml` uses well-formed XHTML with the host's theme/font/CSP. Raw HTML is escaped. Local relative images can be mapped by the real host; the SDK simulated host shows placeholders. There is no scroll synchronization in this version.
 
 GPL-3.0-or-later. Third-party production dependencies and their licenses are included by the SDK packer.
+
+Hot updates use the generic `webviews.restore@1` lifecycle. The host preserves the existing dock, floating position and scroll while the new activation renders the current unsaved buffer. No menu command is replayed. See [restoration contract](tools/plugin-sdk/docs/HotUpdate.zh-CN.md). Requires a host with the restoration capability.

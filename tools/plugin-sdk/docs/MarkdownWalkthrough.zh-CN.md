@@ -57,8 +57,8 @@ npm run package -- ../artifacts/markdown-preview-0.1.0
 
 ## 4. 注册、安装与真实编辑器调试
 
-1. 在 NotepadNext 打开 **Plugins → Plugin Manager… → Register Resources…**。
-2. 选择 **Local metadata file**，浏览到项目 `markdown-demo/notepadnext-plugin.json`，确认注册。注册后它出现在 **Uninstalled**。
+1. 在 NotepadNext 打开 **Plugins → Plugin Manager… → Add Source…**。
+2. 选择 **Local metadata file**，浏览到项目 `markdown-demo/notepadnext-plugin.json`，确认注册。注册后它出现在 **Discover**。
 3. 选中 **Markdown Preview Demo**，点击蓝色 **Install Local Package…**，选择刚生成的 `artifacts/markdown-preview-0.1.0` 目录，确认安装。
 4. 在 **Installed** 启用插件，点击 **Open Markdown Preview**，或通过 Plugins 菜单 / 工具栏打开。
 5. 在编辑器打开 `.md` 文件，或将新文档语言设为 Markdown；输入标题、列表、代码块和 Unicode，不保存也应更新。

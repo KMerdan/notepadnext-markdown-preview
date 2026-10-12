@@ -20,7 +20,7 @@
 | --- | --- |
 | `tsc` / `nnp-debug` 找不到 | 在生成项目中先安装依赖，使用 Node 24 |
 | debug 找不到 dist/index.js | 先执行 npm run build；dev 本身不编译 TS |
-| 注册后没有运行 | 注册只产生 Uninstalled 条目；安装、启用并执行命令 |
+| 注册后没有运行 | 注册只产生 Discover 条目；安装、启用并执行命令 |
 | 安装找不到入口 / metadata 不匹配 | 选择 nnp-package 的输出目录，metadata 和 package 版本一致 |
 | 改代码后 Reload 仍是旧行为 | 已安装副本未更新；提高版本、Sources → Refresh、Update |
 | 普通 HTML 在本地正常但编辑器拒绝 | 原生 setHtml 接受允许的 XHTML 片段；插件脚本和样式不属于该接口 |

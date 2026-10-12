@@ -75,7 +75,8 @@ async function open() {
   await created.reveal(); ++revision; await render();
 }
 export async function activate(api:PluginContext) {
-  context=api; stopped=false;
+  context=api;
+  api.subscriptions.push(api.webviews.registerRestorer('markdown-preview',()=>open())); stopped=false;
   console.info(api.pluginId + ": activated");
   await context.commands.register('kmerdan.markdown-preview.open',open);
   await context.commands.register('kmerdan.markdown-preview.refresh',async()=>{
