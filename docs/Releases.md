@@ -1,6 +1,6 @@
 # Independent plugin releases
 
-The root `notepadnext-plugin.json` is a marketplace: `list` contains the full metadata of both plugins. Each package keeps `list: false`. Catalog generation never runs plugin code, and its check prevents versions, permissions or commands from drifting between the catalog and package.
+The root `notepadnext-plugin.json` is a marketplace: `list` contains the full metadata of all four plugins. Each package keeps `list: false`. Catalog generation never runs plugin code, and its check prevents versions, permissions or commands from drifting between the catalog and package.
 
 1. Change source and the selected plugin's version in `package.json` and `notepadnext-plugin.json`.
 2. From its directory, run `npm install --package-lock-only --ignore-scripts --install-links`.
@@ -20,4 +20,4 @@ For a complete native install/update demonstration, register the repository with
 
 Registration, installation and enablement are separate choices. Updating HTML must not replace Markdown. Plugin Manager retains per-plugin data and restores supported open panels; a failed replacement rolls back its package.
 
-SDK upgrades: change the exact SDK Release URL in both development dependencies, regenerate lockfiles with install hooks disabled, verify their resolved URL/integrity, and run `npm run ci`. The application submodule and SDK implementation are maintained outside this repository. Do not copy SDK source back into tools.
+SDK upgrades: change the exact SDK Release or commit archive URL in the selected development dependencies, regenerate lockfiles with install hooks disabled, verify their resolved URL/integrity, and run `npm run ci`. The application submodule and SDK implementation are maintained outside this repository. Do not copy SDK source back into tools.
