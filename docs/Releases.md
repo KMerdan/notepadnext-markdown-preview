@@ -16,7 +16,7 @@ node tools/marketplace.cjs release kmerdan.html-preview/v0.1.2 ../html-release-a
 
 Output must be new and outside the source directory. Generic asset filenames are safe because each plugin owns a separate namespaced GitHub Release. The host only selects the chosen plugin's namespace and catalog version, then validates package metadata and integrity. Old Markdown `v0.1.2`–`v0.1.4` releases remain available for backward compatibility.
 
-For a complete native install/update demonstration, register the repository with optional Git ref `marketplace/v0.1.0`, install HTML 0.1.0 and Markdown 0.1.5, then register/refresh the default branch and update to its current catalog versions. The two updates remain independent. Ordinary users leave the ref empty and get the latest catalog.
+For current native API 0.3 installation, register the default repository URL with an empty Git ref and install any of the four plugins. Refresh Catalog and Update query that plugin's namespaced immutable releases independently. An unchanged version reports up-to-date; a newer compatible version goes through package validation and the shared hot-update restoration flow. SDK 0.3.0 is the formal Release tarball dependency.
 
 Registration, installation and enablement are separate choices. Updating HTML must not replace Markdown. Plugin Manager retains per-plugin data and restores supported open panels; a failed replacement rolls back its package.
 
