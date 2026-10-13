@@ -2,12 +2,12 @@
   "manifestVersion": 1,
   "id": "kmerdan.markdown-preview",
   "name": "Markdown Preview",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "list": false,
   "description": "Preview the current Markdown buffer, including unsaved edits.",
   "engines": {
     "notepadnext": ">=0.15.0 <0.16.0",
-    "api": "^0.1.0"
+    "api": "^0.3.0"
   },
   "runtime": {
     "kind": "node",

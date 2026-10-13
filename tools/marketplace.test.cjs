@@ -8,12 +8,12 @@ test('plugins consume the same immutable SDK tarball, not copied SDK source',()=
  const fs=require('node:fs');const urls=[];
  for(const directory of ['markdown-preview','html-preview']){
   const p=path.resolve(__dirname,'../plugins',directory);const pkg=JSON.parse(fs.readFileSync(path.join(p,'package.json'))),lock=JSON.parse(fs.readFileSync(path.join(p,'package-lock.json')));
-  const url=pkg.devDependencies['@notepadnext/plugin-sdk'];assert.match(url,/^https:\/\/github\.com\/KMerdan\/notepadnext-plugin-sdk\/releases\/download\/v0\.2\.1\/notepadnext-plugin-sdk-0\.2\.1\.tgz$/);
+  const url=pkg.devDependencies['@notepadnext/plugin-sdk'];assert.match(url,/^https:\/\/github\.com\/KMerdan\/notepadnext-plugin-sdk\/releases\/download\/v0\.3\.0\/notepadnext-plugin-sdk-0\.3\.0\.tgz$/);
   assert.equal(lock.packages['node_modules/@notepadnext/plugin-sdk'].resolved,url);assert.match(lock.packages['node_modules/@notepadnext/plugin-sdk'].integrity,/^sha512-/);urls.push(url);
  }assert.equal(urls[0],urls[1]);assert.equal(fs.existsSync(path.resolve(__dirname,'plugin-sdk')),false);
 });
 
-test('native enhancement plugins pin the reviewed API 0.3 SDK source',()=>{
+test('native enhancement plugins pin the released API 0.3 SDK tarball',()=>{
  const fs=require('node:fs');
- for(const name of ['text-inspector','todo-navigator']){const folder=path.resolve(__dirname,'../plugins',name);const pkg=JSON.parse(fs.readFileSync(path.join(folder,'package.json'))),lock=JSON.parse(fs.readFileSync(path.join(folder,'package-lock.json'))),manifest=JSON.parse(fs.readFileSync(path.join(folder,'notepadnext-plugin.json')));assert.equal(manifest.engines.api,'^0.3.0');const url=pkg.devDependencies['@notepadnext/plugin-sdk'];assert.match(url,/^https:\/\/github\.com\/KMerdan\/notepadnext-plugin-sdk\/archive\/[0-9a-f]{40}\.tar\.gz$/);assert.equal(lock.packages['node_modules/@notepadnext/plugin-sdk'].resolved,url);assert.match(lock.packages['node_modules/@notepadnext/plugin-sdk'].integrity,/^sha512-/);}
+ for(const name of ['text-inspector','todo-navigator']){const folder=path.resolve(__dirname,'../plugins',name);const pkg=JSON.parse(fs.readFileSync(path.join(folder,'package.json'))),lock=JSON.parse(fs.readFileSync(path.join(folder,'package-lock.json'))),manifest=JSON.parse(fs.readFileSync(path.join(folder,'notepadnext-plugin.json')));assert.equal(manifest.engines.api,'^0.3.0');const url=pkg.devDependencies['@notepadnext/plugin-sdk'];assert.equal(url,'https://github.com/KMerdan/notepadnext-plugin-sdk/releases/download/v0.3.0/notepadnext-plugin-sdk-0.3.0.tgz');assert.equal(lock.packages['node_modules/@notepadnext/plugin-sdk'].resolved,url);assert.match(lock.packages['node_modules/@notepadnext/plugin-sdk'].integrity,/^sha512-/);}
 });
