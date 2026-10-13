@@ -30,7 +30,7 @@ Text Inspector and TODO Navigator are developer examples, not part of the defaul
 
 ## Develop
 
-Node 24; no Qt compiler or editor source checkout is needed. All four plugins consume the exact SDK **0.3.1** [Release tarball](https://github.com/KMerdan/notepadnext-plugin-sdk/releases/tag/v0.3.1), with URL and integrity fixed by their lockfiles. Each declares native API **0.3** and uses captured command invocations. There is no vendored SDK or old API profile.
+Node 24; no Qt compiler or editor source checkout is needed. All four plugins consume the exact SDK **0.3.2** [Release tarball](https://github.com/KMerdan/notepadnext-plugin-sdk/releases/tag/v0.3.2), with URL and integrity fixed by their lockfiles. Each declares native API **0.3** and uses captured command invocations. There is no vendored SDK or old API profile.
 
 ```sh
 npm run ci
@@ -41,7 +41,7 @@ This installs dependencies with scripts disabled, builds and tests all four plug
 - [Markdown development and local debugging](plugins/markdown-preview/README.md)
 - [Native enhancements development and verification](docs/NativeEnhancements.zh-CN.md)
 - [HTML service development and native debugging](plugins/html-preview/README.md)
-- [SDK guide](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.1/docs/GettingStarted.zh-CN.md), [API](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.1/docs/API.zh-CN.md), [panel restoration](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.1/docs/HotUpdate.zh-CN.md)
+- [SDK guide](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.2/docs/GettingStarted.zh-CN.md), [API](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.2/docs/API.zh-CN.md), [panel restoration](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.2/docs/HotUpdate.zh-CN.md)
 - [Independent release maintenance](docs/Releases.md)
 
 GPL-3.0-or-later. The SDK and examples derive from NotepadNext / Notepad Next ++; upstream copyright notices and licenses are retained. Runtime third-party dependencies and their licenses are included in release packages.

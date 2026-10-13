@@ -1,6 +1,6 @@
 # HTML Preview
 
-`kmerdan.html-preview` renders the active unsaved HTML document directly inside a native preview dock, including inline JavaScript and relative CSS, JS and images. It uses SDK 0.3.1, `previews.getSource`, `startLocalService`, `webviews.createService`, `reloadSource` and a panel restorer. App 0.15.2 or later is required.
+`kmerdan.html-preview` renders the active unsaved HTML document directly inside a native preview dock, including inline JavaScript and relative CSS, JS and images. It uses SDK 0.3.2, `previews.getSource`, `startLocalService`, `webviews.createService`, `reloadSource` and a panel restorer. App 0.15.2 or later is required.
 
 Use Node 24 from this directory:
 
@@ -19,6 +19,6 @@ Relative assets are limited to the canonical source directory, an allowlist of t
 
 For native debugging, rebuild/repackage into a fresh output directory, uninstall the old development package while retaining data, then install the new local package. Reload uses the installed package, not edits in your source checkout. Plugin Manager → Logs shows activation errors. The simulated debug host does not implement native service WebEngine panels.
 
-[SDK HTML service contract](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.1/docs/HtmlService.zh-CN.md) · [lifecycle](../../docs/PreviewLifecycle.md) · [repository registration and updates](../../README.md)
+[SDK HTML service contract](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.2/docs/HtmlService.zh-CN.md) · [lifecycle](../../docs/PreviewLifecycle.md) · [repository registration and updates](../../README.md)
 
 GPL-3.0-or-later; derived from the SDK HTML service example, with original license notices retained.

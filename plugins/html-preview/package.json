@@ -10,7 +10,7 @@
     "bundle": "nnp-release ."
   },
   "devDependencies": {
-    "@notepadnext/plugin-sdk": "https://github.com/KMerdan/notepadnext-plugin-sdk/releases/download/v0.3.1/notepadnext-plugin-sdk-0.3.1.tgz"
+    "@notepadnext/plugin-sdk": "https://github.com/KMerdan/notepadnext-plugin-sdk/releases/download/v0.3.2/notepadnext-plugin-sdk-0.3.2.tgz"
   },
   "engines": {
     "node": ">=24 <25"
