@@ -1,4 +1,6 @@
-# Text Inspector
+# SDK Example: Text Inspector
+
+This is an API demonstration for plugin developers, outside the default product catalog.
 
 Inspect the originating editor's selections, encoding, EOL and effective indentation. The excerpt uses `documents.readRange`, never a full snapshot. It follows changes to that editor; the Reveal command scrolls without changing the selection.
 

@@ -1,4 +1,6 @@
-# TODO Navigator
+# SDK Example: TODO Navigator
+
+This is an API demonstration for plugin developers, outside the default product catalog.
 
 Find whole words with the native literal search service, highlight versioned ranges and reveal a clicked result. The panel retains its query and scroll across hot updates. Temporary indicators belong to this plugin session; stopping or closing the document releases them and leaves user bookmarks intact.
 

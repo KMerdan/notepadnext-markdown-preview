@@ -56,4 +56,4 @@ Open a preview manually on a matching editor tab. One dock follows matching tabs
 
 Text Inspector and TODO Navigator are SDK development examples, not polished production tools. They live under `examples/` and are excluded from the default Discover catalog. Their purpose is to demonstrate native selection, search and owned highlights; their tests belong to this repository and the SDK.
 
-Existing installations from the old repository origin must be uninstalled and installed from the new canonical source once. Retain plugin data when uninstalling if desired; source-isolated data is not silently moved between origins. New installations and subsequent updates use the new URL.
+The one-time old-origin migration is described above; all subsequent installs and updates use this canonical URL.
