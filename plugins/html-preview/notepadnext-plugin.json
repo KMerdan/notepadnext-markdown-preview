@@ -3,10 +3,10 @@
   "id": "kmerdan.html-preview",
   "name": "HTML Preview",
   "description": "Run HTML and JavaScript through an activation-owned local Node.js service.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "list": false,
   "engines": {
-    "notepadnext": ">=0.15.0 <0.16.0",
+    "notepadnext": ">=0.15.2 <0.16.0",
     "api": "^0.3.0"
   },
   "runtime": {
@@ -20,7 +20,8 @@
       "documents.events@1",
       "webviews@1",
       "webviews.service@1",
-      "webviews.restore@1"
+      "webviews.restore@1",
+      "webviews.document@1"
     ],
     "optional": []
   },
@@ -42,5 +43,16 @@
       }
     ]
   },
-  "repository": "https://github.com/KMerdan/notepadnext-markdown-preview"
+  "repository": "https://github.com/KMerdan/notepadnext-plugin-marketplace",
+  "category": "editor-preview",
+  "preview": {
+    "viewType": "html-preview",
+    "languages": [
+      "html"
+    ],
+    "extensions": [
+      ".html",
+      ".htm"
+    ]
+  }
 }

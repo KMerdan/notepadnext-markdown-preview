@@ -22,5 +22,5 @@ jobs:
         run: |
           node plugins/markdown-preview/node_modules/@notepadnext/plugin-sdk/release.cjs plugins/markdown-preview "$RUNNER_TEMP/markdown-assets"
           node plugins/html-preview/node_modules/@notepadnext/plugin-sdk/release.cjs plugins/html-preview "$RUNNER_TEMP/html-assets"
-          node plugins/text-inspector/node_modules/@notepadnext/plugin-sdk/release.cjs plugins/text-inspector "$RUNNER_TEMP/inspector-assets"
-          node plugins/todo-navigator/node_modules/@notepadnext/plugin-sdk/release.cjs plugins/todo-navigator "$RUNNER_TEMP/todo-assets"
+          node examples/text-inspector/node_modules/@notepadnext/plugin-sdk/release.cjs examples/text-inspector "$RUNNER_TEMP/inspector-assets"
+          node examples/todo-navigator/node_modules/@notepadnext/plugin-sdk/release.cjs examples/todo-navigator "$RUNNER_TEMP/todo-assets"

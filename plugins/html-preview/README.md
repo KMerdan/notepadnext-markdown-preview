@@ -1,6 +1,6 @@
 # HTML Preview
 
-Plugin `kmerdan.html-preview` serves HTML, JavaScript, CSS and a document API from a local Node.js HTTP service inside a native preview dock. It uses SDK `startLocalService`, `webviews.createService` and `registerRestorer`; the service lifetime belongs to plugin activation.
+`kmerdan.html-preview` renders the active unsaved HTML document directly inside a native preview dock, including inline JavaScript and relative CSS, JS and images. It uses SDK 0.3.1, `previews.getSource`, `startLocalService`, `webviews.createService`, `reloadSource` and a panel restorer. App 0.15.2 or later is required.
 
 Use Node 24 from this directory:
 
@@ -11,12 +11,14 @@ npm test
 npm run package -- ../../artifacts/html-local
 ```
 
-The build copies the SDK service helper and public assets into `dist`. The installed package needs no extra npm installation or separately managed server. Register this directory's metadata, select Install Local Package in Discover, then enable and choose **Open HTML Preview**. Select HTML as the editor language to load unsaved HTML; use **Load active HTML buffer**, edit the preview source and press **Run preview** to execute its inline JavaScript. Remote origins are not available in this first version; same-service assets and `fetch` work, WebSocket transport is not implemented.
+The build copies the SDK service helper into `dist`. Installed packages need no npm installation or separately managed server. Register this directory’s metadata, select Install Local Package in Discover, enable it, then choose **Open HTML Preview** on an HTML tab. Opening a file alone never opens the preview. Edits update the page after a short debounce. There is no second source editor or demo toolbar.
 
-For native debugging, rebuild/repackage into a fresh output directory, uninstall the old development package while retaining data, then install the new local package. Reload reruns the installed package; it does not load edits from your source directory. Plugin Manager → Logs shows host/service activation errors. The simulated Markdown debug host does not implement native service WebEngine panels.
+One shared dock follows matching active tabs, keeping independent browser state and scroll. It hides on nonmatching tabs. Closing the dock or the last matching tab stops the preview and its HTTP service; another explicit Open starts a new session. Hot updates restore only live panels, their position and their source mappings. JavaScript heap/backend memory is not migrated; pages can persist JSON state with `acquireNotepadNextApi().setState`.
 
-Hot update registers a replacement activation and service endpoint while keeping the existing dock. Its draft source, rendered preview and counter restore from `acquireNotepadNextApi().setState` (with the legacy alias on older hosts); position and scroll come from the host. Disabling or uninstalling closes the panel and disposes the HTTP server. Backend process memory is not migrated.
+Relative assets are limited to the canonical source directory, an allowlist of types and 16 MiB per file. Escaping paths/symlinks and external origins are blocked. Same-service `fetch` works; WebSocket transport is not implemented.
 
-[SDK HTML service contract](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.1/docs/HtmlService.zh-CN.md) · [restoration lifecycle](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.2.1/docs/HotUpdate.zh-CN.md) · [repository registration and updates](../../README.md)
+For native debugging, rebuild/repackage into a fresh output directory, uninstall the old development package while retaining data, then install the new local package. Reload uses the installed package, not edits in your source checkout. Plugin Manager → Logs shows activation errors. The simulated debug host does not implement native service WebEngine panels.
+
+[SDK HTML service contract](https://github.com/KMerdan/notepadnext-plugin-sdk/blob/v0.3.1/docs/HtmlService.zh-CN.md) · [lifecycle](../../docs/PreviewLifecycle.md) · [repository registration and updates](../../README.md)
 
 GPL-3.0-or-later; derived from the SDK HTML service example, with original license notices retained.

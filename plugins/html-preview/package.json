@@ -1,6 +1,6 @@
 {
   "name": "kmerdan-html-preview",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "license": "GPL-3.0-or-later",
   "scripts": {
@@ -10,7 +10,7 @@
     "bundle": "nnp-release ."
   },
   "devDependencies": {
-    "@notepadnext/plugin-sdk": "https://github.com/KMerdan/notepadnext-plugin-sdk/releases/download/v0.3.0/notepadnext-plugin-sdk-0.3.0.tgz"
+    "@notepadnext/plugin-sdk": "https://github.com/KMerdan/notepadnext-plugin-sdk/releases/download/v0.3.1/notepadnext-plugin-sdk-0.3.1.tgz"
   },
   "engines": {
     "node": ">=24 <25"
