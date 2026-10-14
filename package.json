@@ -1,6 +1,6 @@
 {
   "name": "notepad-next-plus-plus-official-plugins",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "private": true,
   "license": "GPL-3.0-or-later",
   "engines": {
@@ -9,8 +9,8 @@
   "scripts": {
     "catalog": "node tools/marketplace.cjs sync",
     "check": "node tools/marketplace.cjs check",
-    "build": "npm --prefix plugins/markdown-preview run build && npm --prefix plugins/html-preview run build && npm --prefix plugins/text-inspector run build && npm --prefix plugins/todo-navigator run build",
-    "test": "npm run check && node --test tools/marketplace.test.cjs && npm --prefix plugins/markdown-preview test && npm --prefix plugins/html-preview test && npm --prefix plugins/text-inspector test && npm --prefix plugins/todo-navigator test",
+    "build": "npm --prefix plugins/markdown-preview run build && npm --prefix plugins/html-preview run build && npm --prefix examples/text-inspector run build && npm --prefix examples/todo-navigator run build",
+    "test": "npm run check && node --test tools/marketplace.test.cjs && npm --prefix plugins/markdown-preview test && npm --prefix plugins/html-preview test && npm --prefix examples/text-inspector test && npm --prefix examples/todo-navigator test",
     "ci": "node tools/marketplace.cjs ci"
   }
 }

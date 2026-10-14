@@ -1,12 +1,12 @@
 {
   "manifestVersion": 1,
   "id": "kmerdan.todo-navigator",
-  "name": "TODO Navigator",
-  "version": "0.1.0",
+  "name": "SDK Example: TODO Navigator",
+  "version": "0.1.1",
   "list": false,
-  "description": "Find TODO markers, highlight their native ranges and navigate results.",
+  "description": "Developer example for native SDK APIs. Not a production editor tool.",
   "engines": {
-    "notepadnext": ">=0.15.0 <0.16.0",
+    "notepadnext": ">=0.15.2 <0.16.0",
     "api": "^0.3.0"
   },
   "runtime": {
@@ -48,5 +48,6 @@
       }
     ]
   },
-  "repository": "https://github.com/KMerdan/notepadnext-markdown-preview"
+  "repository": "https://github.com/KMerdan/notepadnext-plugin-marketplace",
+  "category": "editor-tool"
 }

@@ -1,6 +1,6 @@
 {
   "name": "kmerdan-todo-navigator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "license": "GPL-3.0-or-later",
   "scripts": {
@@ -14,7 +14,7 @@
     "bundle": "nnp-release ."
   },
   "devDependencies": {
-    "@notepadnext/plugin-sdk": "https://github.com/KMerdan/notepadnext-plugin-sdk/releases/download/v0.3.0/notepadnext-plugin-sdk-0.3.0.tgz",
+    "@notepadnext/plugin-sdk": "https://github.com/KMerdan/notepadnext-plugin-sdk/releases/download/v0.3.2/notepadnext-plugin-sdk-0.3.2.tgz",
     "typescript": "5.9.3"
   },
   "engines": {
